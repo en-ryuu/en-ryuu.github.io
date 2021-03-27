@@ -74,7 +74,7 @@ function setup() {
 
   // canvas = createCanvas(5980, 2892);
   // canvas = createCanvas(window.innerWidth*4, window.innerHeight*4);
-  canvas = createCanvas(window.innerWidth,window.innerHeight);
+  canvas = createCanvas(window.innerWidth*2,window.innerHeight*2);
   canvas.style("display", "block");
   canvas.parent("sketch-holder");
 
