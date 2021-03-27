@@ -238,7 +238,6 @@ body::-webkit-scrollbar-thumb {
   background: #0b0918;
   box-shadow: 1px 0 50px #2b1c3b;
   transition: all 0.5s ease;
-  border-bottom-right-radius:10%;
 }
 
 .et-hero-tab-slider {
