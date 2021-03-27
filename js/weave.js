@@ -142,10 +142,10 @@ function draw() {
 }
 
 function setMousePos() {
-  mx = mouseX - width / 2;
-  my = mouseY - height / 2;
-  pmx = pmouseX - width / 2;
-  pmy = pmouseY - height / 2;
+  mx = 2*(mouseX - window.innerWidth / 2);
+  my = 2*(mouseY - window.innerHeight / 2);
+  pmx = 2*(pmouseX - window.innerWidth / 2);
+  pmy = 2*(pmouseY - window.innerHeight / 2);
 }
 
 function drawFunc() {
