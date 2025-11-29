@@ -19,6 +19,30 @@ class StickyNavigation {
 		});
 		$(window).scroll(() => { this.onScroll(); });
 		$(window).resize(() => { this.onResize(); });
+		
+		// Hamburger menu toggle
+		$('.hamburger-menu').click(function() {
+			$(this).toggleClass('active');
+			$('.et-hero-tabs-container').toggleClass('active');
+		});
+		
+		// Close menu when clicking on a tab (mobile)
+		$('.et-hero-tab, .et-hero-tab-link').click(function() {
+			if ($(window).width() <= 768) {
+				$('.hamburger-menu').removeClass('active');
+				$('.et-hero-tabs-container').removeClass('active');
+			}
+		});
+		
+		// Close menu when clicking outside (mobile)
+		$(document).click(function(event) {
+			if ($(window).width() <= 768) {
+				if (!$(event.target).closest('.et-hero-tabs-container, .hamburger-menu').length) {
+					$('.hamburger-menu').removeClass('active');
+					$('.et-hero-tabs-container').removeClass('active');
+				}
+			}
+		});
 	}
 	
 	onTabClick(event, element) {
@@ -39,12 +63,15 @@ class StickyNavigation {
 	}
 	
 	checkTabContainerPosition() {
-		let offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
-		if($(window).scrollTop() > offset) {
-			$('.et-hero-tabs-container').addClass('et-hero-tabs-container--top');
-		} 
-		else {
-			$('.et-hero-tabs-container').removeClass('et-hero-tabs-container--top');
+		// Only apply sticky behavior on desktop, not mobile
+		if($(window).width() > 768) {
+			let offset = $('.et-hero-tabs').offset().top + $('.et-hero-tabs').height() - this.tabContainerHeight;
+			if($(window).scrollTop() > offset) {
+				$('.et-hero-tabs-container').addClass('et-hero-tabs-container--top');
+			} 
+			else {
+				$('.et-hero-tabs-container').removeClass('et-hero-tabs-container--top');
+			}
 		}
 	}
 	
